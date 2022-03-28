@@ -39,5 +39,11 @@ def read_reviews():
     buckets = list(db.bucketlist.find({}, {'_id': False}))
     return jsonify({'all_buckets': buckets})
 
+@app.route('/bucket', methods=['POST'])
+def delete_reviews():
+    name_receive = request.form['title_give']
+    db.bucketlist.delete_one({'name': name_receive})
+    return jsonify({'msg': '삭제 완료!'})
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
