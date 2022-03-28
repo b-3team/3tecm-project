@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>My Bucket List</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Hi Melody', cursive;
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
         }
 
-        .mytitle {
-            width: 500px;
-            height: 300px;
-            color: black;
-            text-align: center;
-            background-image: url("https://wallpaperaccess.com/full/3497075.jpg");
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            padding-top: 50px;
-            margin-bottom: 10px;
-            margin-top: 40px;
+        * {
+            font-family: 'Pretendard-Regular';
         }
 
         .realtitle {
@@ -28,33 +20,40 @@
             margin: auto;
         }
 
-        .login {
-            margin: auto;
-            width: 300px;
-            margin-right: 30px;
-            margin-top: 20px;
+        .btn {
+            border: none;
+            background-color: inherit;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
         }
 
-        .btn-group {
-            margin-left: 180px;
+        .maintxt {
+            font-size: 120px;
         }
+
+        body {
+            background-color: lightblue;
+        }
+
     </style>
 </head>
 <body>
 <div class="realtitle">
     <div class="mytitle">
-        <h1>My Bucket List</h1>
+        <p>나의 소망을 가득 담은</p>
+        <h1 class=maintxt>MYBUCKET</h1>
     </div>
 
-    <div class="login">
-            ID: <input type="text"/>
-    <p> PW: <input type="text"/></p>
+    <div class="col">
+
+        <input type="text" name="username" placeholder="아이디를 입력해 주세요" required>
+        <p><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required></p>
     </div>
 
-    <div class="btn-group">
-        <button>로그인하기</button>
-        <button>회원가입</button>
-    </div>
+    <button class="btn default">회원가입</button>
+    <button class="btn default">로그인</button>
 
 </div>
 </body>
