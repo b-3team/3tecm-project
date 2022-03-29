@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My Bucket List</title>
     <style>
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -19,7 +20,7 @@
         }
 
         .whole {
-            width: 300px
+            width: 300px;
             margin: auto;
         }
 
@@ -39,8 +40,9 @@
         }
 
         .maintxt {
-            font-size: 120px;
+            font-size: 100px;
             margin-top: 5px;
+            width: 500px;
         }
 
         .subtxt {
@@ -61,21 +63,22 @@
     </style>
 </head>
 <body>
-    <div class="whole">
-        <div class="mytitle">
-            <p class="subtxt">나의 소망을 가득 담은</p>
-            <h1 class=maintxt>MYBUCKET</h1>
-        </div>
-        <div class="col">
+<div class="whole">
+    <div class="mytitle">
+        <p class="subtxt">나의 소망을 가득 담은</p>
+        <h1 class=maintxt> MYBUCKET </h1>
 
-            <input type="text" name="username" placeholder="아이디를 입력해 주세요" required>
-            <p><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required></p>
-        </div>
-
-        <div class="btn">
-            <button class="btn default">회원가입</button>
-            <button class="btn default">로그인</button>
-        </div>
     </div>
+    <div class="col">
+
+        <input type="text" name="username" placeholder="아이디를 입력해 주세요" required>
+        <p><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required></p>
+    </div>
+
+    <div class="btn">
+        <button class="btn default">회원가입</button>
+        <button class="btn default">로그인</button>
+    </div>
+</div>
 </body>
 </html>
