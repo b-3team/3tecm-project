@@ -24,12 +24,12 @@
     <title>마이 버킷리스트 회원가입</title>
 
     <style>
-            @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
         *{
             font-family: Pretendard-Regular;
         }
@@ -40,9 +40,10 @@
             height: 153px;
             color: white;
             border-radius: 10px;
-            padding-top: 15px;
-            padding-left: 20px;
+            padding-top: 50px;
+            padding-left: 40px;
             font-family: Pretendard-Regular;
+            font-weight: bolder;
         }
         .wrap{
             width: 1000px;
@@ -56,6 +57,10 @@
             padding-top: 100px;
             padding-left: 200px;
 
+        }
+        .myjoin{
+            width : 700px;
+            margin: auto;
         }
         .button{
             background-color: #E2B2A8;
@@ -72,31 +77,51 @@
 </head>
 
 <body>
-    <div class ="wrap">
-        <div>
-            <div class = "mytitle">
-                <h1>MYBUCKET</h1>
+<div class ="wrap">
+    <div>
+        <div class = "mytitle">
+            <h1>MYBUCKET</h1>
+        </div>
+
+        <div class = "mybtn">
+            <div class = "myjoin">
+                <form>
+                    <ul>
+                        <h2>회원가입</h2><hr>
+                        <label>아이디<br>
+                            <input type="text" size="36" />
+                            <button type="button" class="btn btn-secondary">중복확인</button>
+                        </label>
+                        <label>비밀번호<br><input type="text" size="36"/></label>
+                        <label>비밀번호 확인<br><input type="text" size="36"/></label>
+                        <label>이름<br> <input type="text" size="36"/></label>
+                       <p> <label>생년월일<br><input type="text" id="year" size="10.5" placeholder="년(4자)" required/></label>
+                        <select id="month">
+                            <option value="0">월</option>
+                            <option value="1">1월</option>
+                            <option value="2">2월</option>
+                            <option value="3">3월</option>
+                            <option value="4">4월</option>
+                            <option value="5">5월</option>
+                            <option value="6>6월</option>
+                            <option value="7">7월</option>
+                            <option value="8">8월</option>
+                            <option value="9">9월</option>
+                            <option value="10">10월</option>
+                            <option value="11">11월</option>
+                            <option value="12">12월</option>
+                        </select>
+                        <input type="text" id="day" size="11" placeholder="  일" required/></label></p>
+                        <label>이메일<br><input type="text" size="36"/></label>
+
+                          <p><button type="submit" class = "button">가입하기</button></p>
+                    </ul>
+                </form>
             </div>
 
-            <div class = "mybtn">
-                <h2>회원가입</h2>
-                <hr>
-                <p>아이디</p>
-                <input type="text" />
-                <button type="button" class="btn btn-secondary">중복확인</button>
-                <p>비밀번호</p>
-                <input type="text" />
-                <p>비밀번호 확인</p>
-                <input type="text" />
-                <p>이름</p>
-                <input type="text" />
-                <p>이메일</p>
-
-                <input type="text" />
-                <p><button class = "button">가입하기</button></p>
-            </div>
-            </div>
+        </div>
     </div>
+</div>
 </body>
 
 </html>
