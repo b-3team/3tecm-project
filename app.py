@@ -10,9 +10,10 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
-## API 역할을 하는 부분
+# 버킷리스트 저장하기
 @app.route('/bucket', methods=['POST'])
 def write_review():
+
     title_receive = request.form['title_give']
     heart_receive = request.form['heart_give']
     difficulty_receive = request.form['difficulty_give']
@@ -31,19 +32,37 @@ def write_review():
 
     db.bucketlist.insert_one(doc)
 
-    return jsonify({'msg': '저장 완료!'})
+    return jsonify({'msg': '버킷리스트가 저장되었습니다!'})
 
-
+#버킷리스트 보여주기
 @app.route('/bucket', methods=['GET'])
 def read_reviews():
     buckets = list(db.bucketlist.find({}, {'_id': False}))
     return jsonify({'all_buckets': buckets})
 
-@app.route('/bucket', methods=['POST'])
+#버킷리스트 삭제하기
+@app.route('/bucket', methods=['DELETE'])
+@login_required
 def delete_reviews():
     name_receive = request.form['title_give']
     db.bucketlist.delete_one({'title': name_receive})
-    return jsonify({'msg': '삭제 완료!'})
+    return jsonify({'msg': '버킷리스트가 삭제되었습니다!'})
+
+
+#내용(content) 변경
+@app.route('/bucket', methods=['PUT'])
+@login_required
+def change_content():
+    content_receive = request.args.get('content')
+    content_hash = hashlib.sha256(content_receive.encode('utf-8')).hexdigest()
+
+    db.bucketlist.update_one({'user_id': request.user_id}, {'$set': {'content': content_hash}})
+
+    return jsonify({'result': 'success', 'msg': '내용 변경완료 했습니다.'})
+
+
+
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
