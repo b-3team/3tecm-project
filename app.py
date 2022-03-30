@@ -42,7 +42,6 @@ def read_reviews():
 
 #버킷리스트 삭제하기
 @app.route('/bucket', methods=['DELETE'])
-@login_required
 def delete_reviews():
     name_receive = request.form['title_give']
     db.bucketlist.delete_one({'title': name_receive})
@@ -55,7 +54,6 @@ def delete_reviews():
 def change_content():
     content_receive = request.args.get('content')
     db.bucketlist.update_one({'user_id': request.user_id}, {'$set': {'content': content_receive}})
-
     return jsonify({'result': 'success', 'msg': '내용 변경완료 했습니다.'})
 
 if __name__ == '__main__':
