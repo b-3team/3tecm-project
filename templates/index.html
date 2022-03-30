@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <!-- Webpage Title -->
+        <title>모두의 책리뷰 | 스파르타코딩클럽</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+
+        <!-- 구글폰트 -->
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                showReview();
+            });
+
+            function makeReview() {
+                let title = $('#title').val()
+                let heart = $('#heart').val()
+                let difficulty = $('#difficulty').val()
+                let photo = $('#photo').val()
+                let period = $('#period').val()
+                let content = $('#content').val()
+
+                $.ajax({
+                    type: "POST",
+                    url: "/bucket",
+                    data: {title_give:title,heart_give:heart,difficulty_give:difficulty,photo_give:photo,period_give:period,content_give:content},
+                    success: function (response) {
+                        alert(response["msg"]);
+                        window.location.reload();
+                    }
+                })
+            }
+
+            function showReview() {
+                $.ajax({
+                    type: "GET",
+                    url: "/bucket",
+                    data: {},
+                    success: function (response) {
+                        let buckets = response['all_buckets']
+                        for (let i = 0; i < buckets.length; i++) {
+                            let title = buckets[i]['title']
+                            let heart = buckets[i]['heart']
+                            let difficulty = buckets[i]['difficulty']
+                            let photo = buckets[i]['photo']
+                            let period = buckets[i]['period']
+                            let content = buckets[i]['content']
+
+                            let temp_html = `<tr>
+                                                <td>${title}</td>
+                                                <td>${heart}</td>
+                                                <td>${difficulty}</td>
+                                                <td>${photo}</td>
+                                                <td>${period}</td>
+                                                <td>${content}</td>
+                                            </tr>`
+                            $('#buckets-box').append(temp_html)
+                        }
+                    }
+                })
+            }
+            function delete_reviews() {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/bucket',
+                                data: {title_give:title},
+                                success: function (response) {
+                                    alert(response['msg']);
+                                    window.location.reload()
+                                }
+                            });
+                        }
+
+        </script>
+
+
+        <style type="text/css">
+            * {
+                font-family: "Do Hyeon", sans-serif;
+            }
+
+            h1,
+            h5 {
+                display: inline;
+            }
+
+            .info {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .review {
+                text-align: center;
+            }
+
+            .reviews {
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container" style="max-width: 600px;">
+            <img src="https://image.freepik.com/free-vector/large-bookcase-with-books-library-book-shelf-interior_92863-357.jpg"
+                 class="img-fluid" alt="Responsive image">
+            <div class="info">
+                <h1>읽은 책에 대해 말씀해주세요.</h1>
+                <p>다른 사람을 위해 리뷰를 남겨주세요! 다 같이 좋은 책을 읽는다면 다 함께 행복해질 수 있지 않을까요?</p>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">제목</span>
+                    </div>
+                    <input type="text" class="form-control" id="title">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">하트</span>
+                    </div>
+                    <input type="text" class="form-control" id="heart">
+                </div>
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">난이도</span>
+                    </div>
+                    <input type="text" class="form-control" id="difficulty">
+                </div>
+                 <di class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">사진</span>
+                    </div>
+                    <input type="text" class="form-control" id="photo">
+                </di>
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">기간</span>
+                    </div>
+                    <input type="text" class="form-control" id="period">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">내용</span>
+                    </div>
+                    <textarea class="form-control" id="content"
+                              cols="30"
+                              rows="5" placeholder="140자까지 입력할 수 있습니다."></textarea>
+                </div>
+                <div class="bucket">
+                    <button onclick="makeReview()" type="button" class="btn btn-primary">작성하기</button>
+                </div>
+            </div>
+            <div class="bucket">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">제목</th>
+                        <th scope="col">하트</th>
+                        <th scope="col">난이도</th>
+                        <th scope="col">사진</th>
+                        <th scope="col">기간</th>
+                        <th scope="col">내용</th>
+                    </tr>
+                    </thead>
+                    <tbody id="buckets-box">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+
+</html>
