@@ -11,7 +11,7 @@ def home():
     return render_template('index.html')
 
 # 버킷리스트 저장하기
-@app.route('/bucket', methods=['POST'])
+@app.route('/save', methods=['POST'])
 def write_review():
 
     title_receive = request.form['title_give']
@@ -54,15 +54,9 @@ def delete_reviews():
 @login_required
 def change_content():
     content_receive = request.args.get('content')
-    content_hash = hashlib.sha256(content_receive.encode('utf-8')).hexdigest()
-
-    db.bucketlist.update_one({'user_id': request.user_id}, {'$set': {'content': content_hash}})
+    db.bucketlist.update_one({'user_id': request.user_id}, {'$set': {'content': content_receive}})
 
     return jsonify({'result': 'success', 'msg': '내용 변경완료 했습니다.'})
-
-
-
-
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
