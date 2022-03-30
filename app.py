@@ -42,7 +42,6 @@ def read_reviews():
 
 #버킷리스트 삭제하기
 @app.route('/bucket', methods=['DELETE'])
-@login_required
 def delete_reviews():
     name_receive = request.form['title_give']
     db.bucketlist.delete_one({'title': name_receive})
