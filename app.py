@@ -55,7 +55,6 @@ def delete_reviews():
 def change_content():
     content_receive = request.args.get('content')
     db.bucketlist.update_one({'user_id': request.user_id}, {'$set': {'content': content_receive}})
-
     return jsonify({'result': 'success', 'msg': '내용 변경완료 했습니다.'})
 
 if __name__ == '__main__':
