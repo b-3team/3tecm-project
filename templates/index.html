@@ -76,7 +76,7 @@
                     }
                 })
             }
-            function deleteReview(name) {
+            function delete_reviews() {
                             $.ajax({
                                 type: 'POST',
                                 url: '/bucket',
@@ -177,12 +177,6 @@
                         <th scope="col">내용</th>
                     </tr>
                     </thead>
-                    <div>
-                    <button onclick="likeStar()" type="button" class="btn btn-primary">수정하기</button>
-                </div>
-                    <div>
-                    <button onclick="delete_reviews()" type="button" class="btn btn-primary">삭제하기</button>
-                </div>
                     <tbody id="buckets-box">
                     </tbody>
                 </table>
