@@ -56,62 +56,7 @@
             })
         }
 
-        function showReview() {
-            $.ajax({
-                type: "GET",
-                url: "/review",
-                data: {},
-                success: function (response) {
-                    let reviews = response['all_reviews'];
-                    for (let i = 0; i < reviews.length; i++) {
-                        let title = reviews[i]['title']
-                        let dateY = reviews[i]['dateY']
-                        let dateM = reviews[i]['dateM']
-                        let photo1 = reviews[i]['photo1']
-                        let photo2 = reviews[i]['photo2']
-                        let photo3 = reviews[i]['photo3']
-                        let text = reviews[i]['text']
 
-                        let temp_html = `<div class="card">
-                                            <div class="memo">
-                                                <p class="subject"><img src="../static/images/heart_gray.png" alt="heart">
-                                                    <span>${title}</span></p>
-                                            </div>
-                                            <div class="list">
-                                                <ul>
-                                                    <li>난이도
-                                                        <span class="preten">★★★★★</span>
-                                                    </li>
-
-                                                    <li>달성목표기간
-                                                        <span class="preten">~ ${dateY}.${dateM}</span>
-                                                    </li>
-                                                    <li>사진첨부
-                                                        <ul class="no_img">
-                                                            <li><img src="${photo1}" alt=""></li>
-                                                            <li><img src="${photo2}" alt=""></li>
-                                                            <li><img src="${photo3}" alt=""></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>내용
-                                                        <p class="preten">${text}</p>
-                                                    </li>
-                                                </ul>
-                                                <div class="buttons">
-                                                    <button type="complete" class="btn preten">완료</button>
-                                                    <button type="modify" class="btn preten">수정</button>
-                                                    <button type="delete" class="btn preten">삭제</button>
-                                                </div>
-                                            </div>
-                                        </div>`
-
-                        $('#reviews-box').append(temp_html)
-
-
-                    }
-                }
-            })
-        }
     </script>
 
 </head>
@@ -194,7 +139,7 @@
                 </div>
             </div>
         </div>
-        <div id="reviews-box"></div>
+
 
     </div>
 </div>

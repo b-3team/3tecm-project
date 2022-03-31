@@ -8,7 +8,12 @@ db = client.dbsparta
 ## HTML을 주는 부분
 @app.route('/')
 def home():
+    return render_template('mybucketlist_page.html')
+
+@app.route('/writebucket')
+def write():
     return render_template('putinfo_page.html')
+
 
 ## API 역할을 하는 부분
 @app.route('/review', methods=['POST'])

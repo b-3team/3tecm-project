@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd79413-1ba7-451b-97ef-0e57f225ee7b" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="0fd79413-1ba7-451b-97ef-0e57f225ee7b" name="Changes" comment="posting apply">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/putinfo_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/putinfo_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mybucketlist_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mybucketlist_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/putinfo_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/putinfo_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648713882419</updated>
-      <workItem from="1648713966453" duration="6908000" />
+      <workItem from="1648713966453" duration="12162000" />
     </task>
     <task id="LOCAL-00001" summary="reorganization">
       <created>1648714396147</created>
@@ -126,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648715206700</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="posting apply">
+      <created>1648725283822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648725283822</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,9 +153,10 @@
     <MESSAGE value="reorganization" />
     <MESSAGE value="delete a same thing" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="posting apply" />
+    <option name="LAST_COMMIT_MESSAGE" value="posting apply" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/3tecm_project$app.coverage" NAME="app Coverage Results" MODIFIED="1648719731673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/3tecm_project$app.coverage" NAME="app Coverage Results" MODIFIED="1648729739365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
