@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBucket_list</title>
+    <link rel="stylesheet" href="../static/putinfo_page.css">
+    <script src="https://kit.fontawesome.com/b459532350.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <h1 class="logo">
+            <img src="../images/small_logo.png" alt="logo_small">
+        </h1>
+
+        <nav class="search-box">
+            <input class="search-txt" type="text" placeholder="키워드를 검색해 주세요">
+            <a href="#" class="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </nav>
+
+        <nav class="lnb">
+            <ul>
+                <li><img src="../images/human_icon.png" alt="human_icon">
+                    <ul>
+                        <li><a href="#">마이페이지</a>
+                        </li>
+                        <li><a href="#">리스트 작성하기</a>
+                        </li>
+                        <li><a href="#">나의 버킷리스트</a>
+                        </li>
+                        <li><a href="#">중요 버킷리스트</a>
+                        </li>
+                        <li><a href="#">완료한 버킷리스트</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </nav>
+    </header>
+
+    <div class="middle">
+        <h2>버킷리스트 작성하기</h2>
+        <div class="line"></div>
+
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <div class="memo">
+                <p class="subject">
+                    <img src="../images/heart_gray.png" alt="heart">
+                    <input class="title" type="text" placeholder="제목을 입력해 주세요">
+                </p>
+
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li class="date">달성목표기간
+                        ~<input class="date_Y" type="text" placeholder="YYYY">.<input class="date_M" type="text"
+                                                                                      placeholder="MM">
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" placeholder="내용을 입력해 주세요"></textarea>
+                        </p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="publish" class="btn preten">게시</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

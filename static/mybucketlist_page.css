@@ -1,0 +1,294 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Middleschool_student';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Middleschool_student.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrap {
+    position: relative;
+    margin: auto;
+    width: 1280px;
+    height: px;
+    background-color: #DCE9F8;
+    font-family: Pretendard-Light;
+    border-radius: 0 0 9px 9px;
+}
+
+/*******************************   header   *********************************/
+header {
+    position: relative;
+    height: 164px;
+    width: 1280px;
+    background-color: #7092BF;
+    border-radius: 9px 9px 0 0;
+}
+
+h1 {
+    position: absolute;
+    left: 53px;
+    top: 61px;
+}
+
+header > .search-box {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(0%, -50%);
+    width: 412px;
+    height: 38px;
+    border-radius: 9px;
+    background-color: white;
+}
+
+header > .search-box > .search-txt {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0%, -50%);
+    border: none;
+    width: 320px;
+    height: 100%;
+    font-size: 16px;
+}
+
+header > .search-box > .search-txt:focus {
+    outline: none;
+}
+
+header > .search-box > .search-btn {
+    color: #7092BF;
+    float: right;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.lnb > ul {
+    position: absolute;
+    top: 59px;
+    right: 52px;
+    text-align: center;
+}
+
+.lnb > ul > li > ul {
+    position: absolute;
+    width: 128px;
+
+    left: -40px;
+    background-color: #B3DBDA;
+    border-radius: 5px;
+    z-index: 100;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s;
+}
+
+.lnb > ul > li:hover > ul {
+    height: 158px;
+}
+
+.lnb > ul > li > ul > li {
+    margin: 10px 0;
+}
+
+.lnb > ul > li > ul > li:hover > a {
+    border-bottom: #0071B9 2px solid;
+}
+
+/*******************************   .middle   *********************************/
+.middle {
+    position: relative;
+    height: 77px;
+}
+
+.middle > h2 {
+    position: absolute;
+    left: 107px;
+    top: 38px;
+    display: inline-block;
+    font-size: 18px;
+    width: 150px;
+    color: #4D4D4D;
+}
+
+.line {
+    display: inline-block;
+    position: absolute;
+    top: 48px;
+    left: 250px;
+    width: 175px;
+    height: 1px;
+    background-color: #4D4D4D;
+}
+
+.fa-pen-to-square {
+    position: absolute;
+    right: 107px;
+    top: 38px;
+    font-size: 20px;
+    color: #969696;
+}
+
+
+/*******************************   content   *********************************/
+.preten {
+    font-family: Pretendard-Light;
+    font-size: 14px;
+
+}
+
+.content {
+    position: relative;
+    width: 1066px;
+    left: 107px;
+    background-color: #DCE9F8;
+    font-size: 0;
+    border-radius: 0 0 9px 9px;
+}
+
+
+.content .card {
+    position: relative;
+    display: inline-block;
+    width: 318px;
+    height: 477px;
+    background-color: white;
+    border: 0px black solid;
+    border-radius: 9px;
+    margin: 19px 55px 19px 0;
+}
+
+.content .card:nth-child(3n) {
+    margin-right: 0px;
+}
+
+.content .card > .memo {
+    position: relative;
+    width: 309px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FEE5E0;
+    border-radius: 9px 9px 0 0;
+    padding: 5px;
+
+    color: #4D4D4D;
+}
+
+.content .card > .memo > p.subject > img {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+}
+
+.content .card > .memo > p.subject > span {
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    font-family: Middleschool_student;
+    font-weight: 600;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+
+.content .card > .memo {
+    font-size: 15px;
+}
+
+.content .card > .list {
+}
+
+.content .card > .list > ul {
+    font-size: 15px;
+    margin: 5px;
+}
+
+.content .card > .list > ul > li {
+    margin: 8px;
+    margin-left: 20px;
+    list-style-type: disc;
+    font-family: Middleschool_student;
+    font-size: 21px;
+}
+
+.no_img {
+    display: flex;
+    margin-top: 4px;
+}
+
+.no_img > li {
+    margin-right: 6px;
+}
+
+.buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+}
+
+.buttons > button {
+    color: white;
+    width: 43px;
+    height: 28px;
+    margin-left: 3px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    font-family: Middleschool_student;
+    font-size: 20px;
+}
+
+button:nth-child(1) {
+    background-color: #E2B2A8;
+}
+
+button:nth-child(2) {
+    background-color: #A8D1E8;
+}
+
+button:nth-child(3) {
+    background-color: #969696;
+}

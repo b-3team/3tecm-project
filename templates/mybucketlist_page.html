@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBucket_list</title>
+    <link rel="stylesheet" href="../static/mybucketlist_page.css">
+    <script src="jquery-1.12.3.js"></script>
+    <script defer src="mybucketlist_page.js"></script>
+    <script src="https://kit.fontawesome.com/b459532350.js" crossorigin="anonymous"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+        function hey() {
+            alert('안녕!!');
+        }
+
+    </script>
+
+
+</head>
+<body>
+<div id="wrap">
+    <div id="black"></div>
+    <header>
+        <h1 class="logo">
+            <img src="../images/small_logo.png" alt="logo_small">
+        </h1>
+
+        <nav class="search-box">
+            <input class="search-txt" type="text" placeholder="키워드를 검색해 주세요">
+            <a href="#" class="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </nav>
+
+        <nav class="lnb">
+            <ul>
+                <li><img src="../images/human_icon.png" alt="human_icon">
+                    <ul>
+                        <li><a href="#">마이페이지</a>
+                        </li>
+                        <li><a href="#">리스트 작성하기</a>
+                        </li>
+                        <li><a href="#">나의 버킷리스트</a>
+                        </li>
+                        <li><a href="#">중요 버킷리스트</a>
+                        </li>
+                        <li><a href="#">완료한 버킷리스트</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </nav>
+    </header>
+
+    <div class="middle">
+        <h2>나의 버킷리스트</h2>
+        <div class="line"></div>
+        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
+
+    <div class="middle">
+        <h2>나의 버킷리스트</h2>
+        <div class="line"></div>
+        <i class="fa-solid fa-pen-to-square"></i>
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <div class="memo">
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="memo">
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="memo">
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="memo">
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="memo">
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="memo">
+
+                <p class="subject"><img src="../images/heart_gray.png" alt="heart">
+                    <span>제목을 입력해 주세요</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">★★★★★</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ YYYY.MM</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                            <li><img src="../images/no_image.png" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">작성된 내용이 없습니다.</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button type="complete" class="btn preten">완료</button>
+                    <button type="modify" class="btn preten">수정</button>
+                    <button type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
