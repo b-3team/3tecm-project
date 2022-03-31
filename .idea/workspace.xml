@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd79413-1ba7-451b-97ef-0e57f225ee7b" name="Changes" comment="reorganization">
-      <change beforePath="$PROJECT_DIR$/templates/mybucketlist_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mybucketlist_page.html" afterDir="false" />
+    <list default="true" id="0fd79413-1ba7-451b-97ef-0e57f225ee7b" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/putinfo_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/putinfo_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/putinfo_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/putinfo_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +20,19 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -32,6 +48,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -44,9 +61,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\★웹디자인\sparta\projects\3tecm-project\images" />
       <recent name="F:\★웹디자인\sparta\projects\3tecm-project\static" />
       <recent name="F:\★웹디자인\sparta\projects\3tecm-project\templates" />
+      <recent name="F:\★웹디자인\sparta\projects\3tecm-project\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -86,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648713882419</updated>
-      <workItem from="1648713966453" duration="988000" />
+      <workItem from="1648713966453" duration="6908000" />
     </task>
     <task id="LOCAL-00001" summary="reorganization">
       <created>1648714396147</created>
@@ -95,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648714396147</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="delete a same thing">
+      <created>1648715064316</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648715064316</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor">
+      <created>1648715206699</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648715206700</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,9 +145,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="reorganization" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganization" />
+    <MESSAGE value="delete a same thing" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/3tecm_project$app.coverage" NAME="app Coverage Results" MODIFIED="1648714910946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/3tecm_project$app.coverage" NAME="app Coverage Results" MODIFIED="1648719731673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

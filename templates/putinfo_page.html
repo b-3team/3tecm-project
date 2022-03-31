@@ -4,7 +4,116 @@
     <meta charset="UTF-8">
     <title>MyBucket_list</title>
     <link rel="stylesheet" href="../static/putinfo_page.css">
+
     <script src="https://kit.fontawesome.com/b459532350.js" crossorigin="anonymous"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showReview();
+        });
+
+        function makeReview() {
+            let title = $('#title').val()
+            let dateY = $('#date_Y').val()
+            let dateM = $('#date_M').val()
+            let photo1 = $('#photo1').val()
+            let photo2 = $('#photo2').val()
+            let photo3 = $('#photo3').val()
+            let text = $('#text').val()
+
+
+            $.ajax({
+                type: "POST",
+                url: "/review",
+                data: {
+                    title_give: title,
+                    dateY_give: dateY,
+                    dateM_give: dateM,
+                    photo1_give: photo1,
+                    photo2_give: photo2,
+                    photo3_give: photo3,
+                    text_give: text
+                },
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
+        }
+
+        function showReview() {
+            $.ajax({
+                type: "GET",
+                url: "/review",
+                data: {},
+                success: function (response) {
+                    let reviews = response['all_reviews'];
+                    for (let i = 0; i < reviews.length; i++) {
+                        let title = reviews[i]['title']
+                        let dateY = reviews[i]['dateY']
+                        let dateM = reviews[i]['dateM']
+                        let photo1 = reviews[i]['photo1']
+                        let photo2 = reviews[i]['photo2']
+                        let photo3 = reviews[i]['photo3']
+                        let text = reviews[i]['text']
+
+                        let temp_html = `<div class="card">
+                                            <div class="memo">
+                                                <p class="subject"><img src="../static/images/heart_gray.png" alt="heart">
+                                                    <span>${title}</span></p>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li>난이도
+                                                        <span class="preten">★★★★★</span>
+                                                    </li>
+
+                                                    <li>달성목표기간
+                                                        <span class="preten">~ ${dateY}.${dateM}</span>
+                                                    </li>
+                                                    <li>사진첨부
+                                                        <ul class="no_img">
+                                                            <li><img src="${photo1}" alt=""></li>
+                                                            <li><img src="${photo2}" alt=""></li>
+                                                            <li><img src="${photo3}" alt=""></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>내용
+                                                        <p class="preten">${text}</p>
+                                                    </li>
+                                                </ul>
+                                                <div class="buttons">
+                                                    <button type="complete" class="btn preten">완료</button>
+                                                    <button type="modify" class="btn preten">수정</button>
+                                                    <button type="delete" class="btn preten">삭제</button>
+                                                </div>
+                                            </div>
+                                        </div>`
+
+                        $('#reviews-box').append(temp_html)
+
+
+                    }
+                }
+            })
+        }
+    </script>
+
 </head>
 <body>
 <div id="wrap">
@@ -53,7 +162,7 @@
             <div class="memo">
                 <p class="subject">
                     <img src="../static/images/heart_gray.png" alt="heart">
-                    <input class="title" type="text" placeholder="제목을 입력해 주세요">
+                    <input id="title" class="title" type="text" placeholder="제목을 입력해 주세요">
                 </p>
 
             </div>
@@ -64,27 +173,28 @@
                     </li>
 
                     <li class="date">달성목표기간
-                        ~<input class="date_Y" type="text" placeholder="YYYY">.<input class="date_M" type="text"
-                                                                                      placeholder="MM">
+                        ~<input id="date_Y" type="text" placeholder="YYYY">.<input id="date_M" type="text"
+                                                                                   placeholder="MM">
                     </li>
                     <li>사진첨부
                         <ul class="no_img">
-                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
-                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
-                            <li><input class="photo" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                            <li><input id="photo1" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                            <li><input id="photo2" type="text" placeholder="사진파일주소를 입력해주세요."></li>
+                            <li><input id="photo3" type="text" placeholder="사진파일주소를 입력해주세요."></li>
                         </ul>
                     </li>
                     <li>내용
                         <p>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" placeholder="내용을 입력해 주세요"></textarea>
+                            <textarea class="form-control" id="text" rows="8" placeholder="내용을 입력해 주세요"></textarea>
                         </p>
                     </li>
                 </ul>
                 <div class="buttons">
-                    <button type="publish" class="btn preten">게시</button>
+                    <button onclick="makeReview()" type="publish" class="btn preten">게시</button>
                 </div>
             </div>
         </div>
+        <div id="reviews-box"></div>
 
     </div>
 </div>
