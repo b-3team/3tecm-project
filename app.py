@@ -18,7 +18,7 @@ def join():
 ##HTML 화면 보여주기3
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('index.html')
 
 #회원가입
 @app.route('/api/join', methods=['POST'])
