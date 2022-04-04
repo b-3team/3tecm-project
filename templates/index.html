@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>MyBucket_list</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
         <style>
             @charset "utf-8";
 
@@ -391,9 +393,9 @@
                     </li>
                 </ul>
                 <div class="buttons">
-                    <button type="complete" class="btn preten">완료</button>
-                    <button type="modify" class="btn preten">수정</button>
-                    <button type="delete" class="btn preten">삭제</button>
+                    <button  type="complete" class="btn preten">완료</button>
+                    <button onclick="changeBucket('${title}')" type="modify" class="btn preten">수정</button>
+                    <button onclick="deleteBucket('${title}')" type="delete" class="btn preten">삭제</button>
                 </div>
             </div>
         </div>`
@@ -403,24 +405,26 @@
                 });
             }
 
-            function likeStar(name) {
+            function changeBucket(title) {
                 $.ajax({
                     type: 'POST',
-                    url: '/api/like',
-                    data: {sample_give:'샘플데이터'},
+                    url: '/show/change',
+                    data: {title_give:title},
                     success: function (response) {
                         alert(response['msg']);
+                        window.location.reload()
                     }
                 });
             }
 
-            function deleteStar(name) {
+            function deleteBucket(title) {
                 $.ajax({
                     type: 'POST',
-                    url: '/api/delete',
-                    data: {sample_give:'샘플데이터'},
+                    url: '/show/delete',
+                    data: {title_give:title},
                     success: function (response) {
                         alert(response['msg']);
+                        window.location.reload()
                     }
                 });
             }

@@ -48,19 +48,25 @@ def show_bucket():
     bucket_list = list(db.mybucket.find({}, {'_id': False}).sort('difficulty', -1))
     return jsonify({'bucket_lists': bucket_list})
 
-#내용 수정하기
-@app.route('/bucket', methods=['POST'])
-def like_star():
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg': 'like 연결되었습니다!'})
+#내용(exampleFormControlTextarea1) 수정하기
+@app.route('/show/change', methods=['POST'])
+def change_bucket():
+    title_receive = request.form['title_give']
+    target_bucket = db.mybucket.find_one({'title': title_receive})
+    current_content = target_bucket['exampleFormControlTextarea1']
+
+    new_content = current_content.replace("", "",1)
+
+    db.mybucket.update_one({'title': title_receive}, {'$set': {'exampleFormControlTextarea1': new_content}})
+
+    return jsonify({'msg': '내용이 수정되었습니다!'})
 
 #삭제하기
-@app.route('/show', methods=['POST'])
-def delete_star():
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg': 'delete 연결되었습니다!'})
+@app.route('/show/delete', methods=['POST'])
+def delete_bucket():
+    title_receive = request.form['title_give']
+    db.mybucket.delete_one({'title': title_receive})
+    return jsonify({'msg': '버킷리스트가 삭제되었습니다!'})
 
 
 if __name__ == '__main__':
