@@ -62,18 +62,16 @@
     </style>
 
     <script type="text/javascript">
-
         $(document).ready(function () {
-            $("#join").click(function() {
-                join()
+            $("#join").click(function(){
+                join();
             });
-
-            function join(){
+        });
+            function join() {
                 let userid = $('#new_id').val()
                 let password = $('#new_pw').val()
                 let username = $('#name').val()
                 let useremail = $('#email').val()
-
 
                 $.ajax({
                     type: "POST",
@@ -92,6 +90,7 @@
             }
 
 
+
     </script>
 
 </head>
@@ -101,20 +100,24 @@
     <div class="mybtn">
         <h1>MYBUCKET</h1>
     </div>
+    <form>
     <div>
             <ul>
                 <li><h2>회원가입</h2><hr></li>
+
+                <form id="joinform">
                 <li><label>아이디<br><input type="text" id="new_id" size="35" repuest/>
                     <button type="button" onclick="q1()" id="check">중복확인</button></label></li>
                 <li><label>비밀번호<br><input type="text" id="new_pw" size="56" repuest/></label></li>
                 <li><label>이름<br> <input type="text" id="name" size="56"/></label></li>
                 </select> </label> </li>
                 <li><label>이메일<br><input type="text" id="email" size="56"/></label></li>
+                </form>
                 <div class="buttons">
-                <li><button oneclick="join()" value="전송" id="join">가입하기</button></li>
-                </div>
+                <li><button oneclick="login()" value="전송" id="join">가입하기</button></li>
+                </form>
             </ul>
-        </form>
+    </form>
     </div>
 
 </body>
