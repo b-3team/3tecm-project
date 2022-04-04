@@ -15,7 +15,7 @@ def login_form():
 #로그인 페이지
 @app.route('/login')
 def login():
-    return render_template('main.html')
+    return render_template('mybucklist_page.html')
 
 #회원가입 페이지
 @app.route('/join')
@@ -76,7 +76,7 @@ def api_login():
 
 @app.route('/writebucket')
 def write():
-    return render_template('putinfo.html')
+    return render_template('putinfo_page.html')
 
 
 ## API 역할을 하는 부분
