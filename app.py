@@ -57,11 +57,9 @@ def api_login():
     userid_receive =request.form['userid_give']
     password_receive = request.form['password_give']
 
-    # hash 기능으로 pw를 암호화한다.
-    pw_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
 
     # id, 암호화된 pw 가지고 있는 유저 찾기.
-    result = db.users.find_one({'userid': userid_receive, 'password': pw_hash})
+    result = db.users.find_one({'userid': userid_receive, 'password': password_receive})
     # 찾으면 JWT 토큰 발급.
     if result is not None:
         payload = {
