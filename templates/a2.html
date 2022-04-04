@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>회원가입 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/a2.css">
+
+    <script>
+        function q1() {
+            alert("사용 가능한 아이디 입니다.");
+        }
+
+        function q2() {
+            alert("회원가입이 완료되었습니다.");
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '/join',
+            data: {
+                'userid': userid_receive, #아이디
+                'password': password_hash, #비밀번호
+                'username': username_receive, #이름
+                'useremail': useremail_receive, #이메일
+            },
+            success: function (response) {
+                alert("회원가입을 축하드립니다!");
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="wrap">
+    <header>
+        <h1><img src="" alt="logo"></h1>
+    </header>
+
+    <div class="middle">
+        <h2>회원가입</h2>
+        <div class="line"></div>
+    </div>
+    <div class="contents">
+        <form>
+            <ul>
+                <li class="check">
+                    <label for="new_id">아이디</label>
+                    <input class="form-style" type="text" id="new_id" required>
+                    <button type="button" onclick="q1()" id="check">중복확인</button>
+
+                </li>
+                <li>
+                    <label for="nw_pw">비밀번호</label>
+                    <input class="form-style" type="password" id="nw_pw" required>
+                </li>
+                <li>
+                    <label for="nw_ppw">비밀번호 확인</label>
+                    <input class="form-style" type="password" id="nw_ppw" required>
+                </li>
+                <li>
+                    <label for="name">이름</label>
+                    <input class="form-style" type="text" id="name" placeholder="" required>
+                </li>
+                <li>
+                    <label>생년월일</label>
+                    <p>
+                        <input type="text" class="form-style birth" id="year" placeholder="년(4자)" required>
+                        <select id="month" class="form-style birth">
+                            <optgroup label="월">
+                                <option value="1">1월</option>
+                                <option value="2">2월</option>
+                                <option value="3">3월</option>
+                                <option value="4">4월</option>
+                                <option value="5">5월</option>
+                                <option value="6">6월</option>
+                                <option value="7">7월</option>
+                                <option value="8">8월</option>
+                                <option value="9">9월</option>
+                                <option value="10">10월</option>
+                                <option value="11">11월</option>
+                                <option value="12">12월</option>
+                            </optgroup>
+                        </select>
+                        <input type="text" id="day" class="form-style birth" placeholder="일" required></label>
+                    </p>
+                </li>
+                <li>
+                    <label for="sex">성별</label>
+                    <p>
+                        <select id="sex" class="form-style birth">
+                            <optgroup label="성별">
+                                <option value="m">남</option>
+                                <option value="w">여</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                </li>
+                <li>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email" required class="form-style">
+                </li>
+
+                <li>
+                    <button type="submit" onclick="q2()" id="join">가입하기</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

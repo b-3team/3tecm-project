@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Pretendard-Light;
+}
+
+
+
+#wrap {
+    margin: 0 auto;
+    height: 100vh;
+    width: 1280px;
+    background-color: #DCE9F8;
+    border-radius: 9px;
+}
+
+ol,ul{
+    list-style-type: none;
+}
+
+/*******************************   header   *********************************/
+
+header {
+    position: relative;
+    height: 164px;
+    width: 1280px;
+    background-color: #7092BF;
+    border-radius: 9px 9px 0 0;
+}
+
+h1 {
+    position: absolute;
+    left: 53px;
+    top: 61px;
+}
+/*******************************   .middle   *********************************/
+
+.middle {
+    position: relative;
+    height: 77px;
+}
+
+h2 {
+    position: absolute;
+    left: 107px;
+    top: 38px;
+    display: inline-block;
+    font-size: 18px;
+    width: 150px;
+    color: #4D4D4D;
+}
+
+.line {
+    display: inline-block;
+    position: absolute;
+    top: 48px;
+    left: 187px;
+    width: 227px;
+    height: 1px;
+    background-color: #4D4D4D;
+}
+
+/*******************************   form   *********************************/
+.contents{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    color: #4D4D4D;
+}
+form{
+    position: absolute;
+    left: 213px;
+}
+form>ul>li{
+    margin-bottom: 15px;
+}
+
+.form-style{
+    width: 336px;
+    height: 34px;
+    border-radius: 2px;
+    border: none;
+    padding-left:10px;
+    margin-top: 7px;
+}
+.form-style:focus{
+    outline: none;
+}
+li.check{
+    position: relative;
+}
+#check{
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    top: 50%;
+    margin-top: -4px;
+    right: -100px;
+    background-color: #e2cba8;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+.birth{
+
+    width: 105px;
+}
