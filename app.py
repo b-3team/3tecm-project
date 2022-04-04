@@ -7,39 +7,49 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
-## HTML 화면 보여주기
+## 로그인 페이지
 @app.route('/')
 def login_form():
-    return render_template('index.html')
+    return render_template('login.html')
 
-##HTML 화면 보여주기2
+#로그인 페이지
+@app.route('/login')
+def login():
+    return render_template('main.html')
+
+#회원가입 페이지
 @app.route('/join')
 def join():
     return render_template('join.html')
 
-##HTML 화면 보여주기3
-@app.route('/login')
-def login():
-    return render_template('index.html')
-
 #회원가입
 @app.route('/api/join', methods=['POST'])
 def api_join():
+    #회원정보 생성
         userid_receive = request.form['userid_give']
-        password_receive = request.form['password_give']
-        password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
+        password_receive = request.form['pw_give']
         username_receive = request.form['username_give']
         useremail_receive = request.form['useremail_give']
 
-        doc = {
-            'userid': userid_receive, #아이디
-            'password': password_hash, #비밀번호
-            'username': username_receive, #이름
-            'useremail': useremail_receive, #이메일
-        }
-        db.users.insert_one(doc)
 
-        return jsonify({'result': 'success','msg': '가입 완료!'})
+        doc = {
+            'userid': userid_receive,
+            'pw': password_receive,
+            'username': username_receive,
+            'useremail': useremail_receive,
+        }
+
+        db.bucketinfo.insert_one(doc)
+
+        return jsonify({'msg': '가입완료!'})
+
+
+# 아이디 중복확인 API
+@app.route('/join/check_dup', methods=['POST'])
+def check_dup():
+    userid_receive = request.form['userid_give']
+    exists = bool(db.user.find_one({"userid": userid_receive}))
+    return jsonify({'result': 'success', 'exists': exists})
 
 #로그인 기능
 @app.route('/api/login', methods=['POST'])
@@ -65,6 +75,42 @@ def api_login():
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'msg': '아이디 / 비밀번호가 일치하지 않습니다.'})
+
+@app.route('/writebucket')
+def write():
+    return render_template('putinfo.html')
+
+
+## API 역할을 하는 부분
+@app.route('/review', methods=['POST'])
+def write_review():
+    title_receive = request.form['title_give']
+    dateY_receive = request.form['dateY_give']
+    dateM_receive = request.form['dateM_give']
+    photo1_receive = request.form['photo1_give']
+    photo2_receive = request.form['photo2_give']
+    photo3_receive = request.form['photo3_give']
+    text_receive = request.form['text_give']
+
+    doc = {
+        'title': title_receive,
+        'dateY': dateY_receive,
+        'dateM': dateM_receive,
+        'photo1': photo1_receive,
+        'photo2': photo2_receive,
+        'photo3': photo3_receive,
+        'text': text_receive
+    }
+
+    db.bucket.insert_one(doc)
+
+    return jsonify({'msg': '게시 완료!'})
+
+
+@app.route('/review', methods=['GET'])
+def read_reviews():
+    reviews =list(db.bucket.find({},{'_id':False}))
+    return jsonify({'all_reviews': reviews})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
