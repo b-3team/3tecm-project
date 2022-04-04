@@ -48,15 +48,15 @@ def show_bucket():
     bucket_list = list(db.mybucket.find({}, {'_id': False}).sort('difficulty', -1))
     return jsonify({'bucket_lists': bucket_list})
 
-
-@app.route('/api/like', methods=['POST'])
+#내용 수정하기
+@app.route('/bucket', methods=['POST'])
 def like_star():
     sample_receive = request.form['sample_give']
     print(sample_receive)
     return jsonify({'msg': 'like 연결되었습니다!'})
 
-
-@app.route('/api/delete', methods=['POST'])
+#삭제하기
+@app.route('/show', methods=['POST'])
 def delete_star():
     sample_receive = request.form['sample_give']
     print(sample_receive)
