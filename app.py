@@ -58,7 +58,6 @@ def change_bucket():
     new_content = current_content.replace("", "",1)
 
     db.mybucket.update_one({'title': title_receive}, {'$set': {'exampleFormControlTextarea1': new_content}})
-
     return jsonify({'msg': '내용이 수정되었습니다!'})
 
 #삭제하기
