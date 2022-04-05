@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBucket_list</title>
+    <link rel="stylesheet" href="mybucketlist_page.css">
+    <script src="jquery-1.12.3.js"></script>
+    <script defer src="mybucketlist_page.js"></script>
+    <script src="https://kit.fontawesome.com/b459532350.js" crossorigin="anonymous"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+            $(document).ready(function () {
+                showBucket();
+            });
+
+            function showBucket() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/show?bucket_give=버킷데이터',
+                    data: {},
+                    success: function (response) {
+                        let mybuckets = response['bucket_lists']
+                        for (let i = 0; i < mybuckets.length; i++) {
+                            let title = mybuckets[i]['title']
+                            let heart = mybuckets[i]['heart']
+                            let difficulty = mybuckets[i]['difficulty']
+                            let photo = mybuckets[i]['photo']
+                            let photo1 = mybuckets[i]['photo1']
+                            let photo2 = mybuckets[i]['photo2']
+                            let period_Y = mybuckets[i]['period_Y']
+                            let period_M = mybuckets[i]['period_M']
+                            let exampleFormControlTextarea1 = mybuckets[i]['exampleFormControlTextarea1']
+
+                            let temp_html = `<div class="card">
+            <div class="memo">
+                <p class="subject"><img src="${heart}" alt="heart">
+                    <span>${title}</span></p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>난이도
+                        <span class="preten">${difficulty}</span>
+                    </li>
+
+                    <li>달성목표기간
+                        <span class="preten">~ ${period_Y}.${period_M}</span>
+                    </li>
+                    <li>사진첨부
+                        <ul class="no_img">
+                            <li><img src="${photo}" alt=""></li>
+                            <li><img src="${photo1}" alt=""></li>
+                            <li><img src="${photo2}" alt=""></li>
+                        </ul>
+                    </li>
+                    <li>내용
+                        <p class="preten">${exampleFormControlTextarea1}</p>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button  type="complete" class="btn preten">완료</button>
+                    <button onclick="changeBucket('${title}')" type="modify" class="btn preten">수정</button>
+                    <button onclick="deleteBucket('${title}')" type="delete" class="btn preten">삭제</button>
+                </div>
+            </div>
+        </div>`
+                            $('#bucket-box').append(temp_html)
+                        }
+                    }
+                });
+            }
+
+            function changeBucket(title) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/show/change',
+                    data: {title_give:title},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            }
+
+            function deleteBucket(title) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/show/delete',
+                    data: {title_give:title},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            }
+
+        </script>
+
+
+</head>
+<body>
+<div id="wrap">
+    <div id="black"></div>
+    <header>
+        <h1 class="logo">
+            <img src="images/small_logo.png" alt="logo_small">
+        </h1>
+
+        <nav class="search-box">
+            <input class="search-txt" type="text" placeholder="키워드를 검색해 주세요">
+            <a href="#" class="search-btn">
+                <link rel="import" href="write.html">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </nav>
+
+        <nav class="lnb">
+            <ul>
+                <li><img src="images/human_icon.png" alt="human_icon">
+                    <ul>
+                        <li><a href="#">마이페이지</a>
+                        </li>
+                        <li><a href="#">리스트 작성하기</a>
+                        </li>
+                        <li><a href="#">나의 버킷리스트</a>
+                        </li>
+                        <li><a href="#">중요 버킷리스트</a>
+                        </li>
+                        <li><a href="#">완료한 버킷리스트</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </nav>
+    </header>
+
+    <div class="middle">
+        <h2>나의 버킷리스트</h2>
+        <div class="line"></div>
+        <a href="{{ url_for('/bucket') }}"><i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
+
+    <div class="content">
+
+    </div>
+</body>
+</html>

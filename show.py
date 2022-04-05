@@ -13,35 +13,6 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
-# 저장하기
-@app.route('/bucket', methods=['POST'])
-def write_bucket():
-    title_receive = request.form['title_give']
-    heart_receive = request.form['heart_give']
-    difficulty_receive = request.form['difficulty_give']
-    photo_receive = request.form['photo_give']
-    photo1_receive = request.form['photo1_give']
-    photo2_receive = request.form['photo2_give']
-    period_Y_receive = request.form['period_Y_give']
-    period_M_receive = request.form['period_M_give']
-    exampleFormControlTextarea1_receive = request.form['exampleFormControlTextarea1_give']
-
-    doc = {
-        'title':title_receive,
-        'heart':heart_receive,
-        'difficulty':difficulty_receive,
-        'photo':photo_receive,
-        'photo1':photo1_receive,
-        'photo2':photo2_receive,
-        'period_Y':period_Y_receive,
-        'period_M':period_M_receive,
-        'exampleFormControlTextarea1':exampleFormControlTextarea1_receive
-    }
-
-    db.mybucket.insert_one(doc)
-
-    return jsonify({'msg': '저장 완료!'})
-
 # 보여주기
 @app.route('/show', methods=['GET'])
 def show_bucket():
