@@ -125,7 +125,11 @@ li.check {
 }
 
 .birth {
-    width: 105px;
+    width: 110px;
+}
+
+li.move{
+    display: inline-block;
 }
 
 #join {
