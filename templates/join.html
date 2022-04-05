@@ -182,7 +182,7 @@
                     },
                     success: function (response) {
                         alert(response["msg"]);
-                        window.location.href='login.html';
+                        window.location.href='http://192.168.35.140:5000/';
                     }
                 })
             }
@@ -261,7 +261,7 @@
                 </li>
 
                 <li>
-                    <button oneclick="login()" value="전송" id="join">가입하기</button>
+                    <button type="submit" onclick="login()" value="전송" id="join">가입하기</button>
                 </li>
             </ul>
         </form>
