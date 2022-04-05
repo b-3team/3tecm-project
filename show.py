@@ -13,11 +13,6 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
-
-@app.route('/first')
-def go_bucket():
-    return render_template('write.html')
-
 # 보여주기
 @app.route('/show', methods=['GET'])
 def show_bucket():

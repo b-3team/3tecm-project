@@ -121,7 +121,6 @@
         <nav class="search-box">
             <input class="search-txt" type="text" placeholder="키워드를 검색해 주세요">
             <a href="#" class="search-btn">
-                <link rel="import" href="write.html">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
         </nav>
@@ -132,9 +131,9 @@
                     <ul>
                         <li><a href="#">마이페이지</a>
                         </li>
-                        <li><a href="#">리스트 작성하기</a>
+                        <li><a href="#" onclick="location.href='write.html'">리스트 작성하기</a>
                         </li>
-                        <li><a href="#">나의 버킷리스트</a>
+                        <li><a href="javascript:window.location.reload();">나의 버킷리스트</a>
                         </li>
                         <li><a href="#">중요 버킷리스트</a>
                         </li>
@@ -151,7 +150,7 @@
     <div class="middle">
         <h2>나의 버킷리스트</h2>
         <div class="line"></div>
-        <a href="{{ url_for('/first') }}"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="#" onclick="location.href='write.html'"><i class="fa-solid fa-pen-to-square"></i></a>
     </div>
 
     <div class="content">
