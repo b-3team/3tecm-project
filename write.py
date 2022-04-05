@@ -11,7 +11,7 @@ db = client.dbsparta
 # HTML 화면 보여주기
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('write.html')
 
 # 저장하기
 @app.route('/bucket', methods=['POST'])
@@ -41,6 +41,7 @@ def write_bucket():
     db.mybucket.insert_one(doc)
 
     return jsonify({'msg': '저장 완료!'})
+
 
 # 보여주기
 @app.route('/show', methods=['GET'])
