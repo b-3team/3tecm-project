@@ -12,7 +12,7 @@ db = client.dbsparta
 def login_form():
     return render_template('new_login.html')
 
-#로그인 페이지
+#메인 페이지
 @app.route('/login')
 def login():
     return render_template('mybucklist_page.html')
