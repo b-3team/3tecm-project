@@ -27,15 +27,17 @@ def join():
 def api_join():
     #회원정보 생성
         userid_receive = request.form['userid_give']
-        password_receive = request.form['pw_give']
         username_receive = request.form['username_give']
+        userday_receive = request.form['userday_give']
+        usersex_receive = request.form['usersex_give']
         useremail_receive = request.form['useremail_give']
 
 
         doc = {
             'userid': userid_receive,
-            'pw': password_receive,
             'username': username_receive,
+            'userday': userday_receive,
+            'usersex': usersex_receive,
             'useremail': useremail_receive,
         }
 
