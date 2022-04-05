@@ -164,25 +164,25 @@
             });
         });
             function join() {
-                let userid = $('#new_id').val()
-                let username = $('#name').val()
-                let userday = $('#day').val()
-                let usersex = $('#sex').val()
-                let useremail = $('#email').val()
+                let user_id = $('#new_id').val()
+                let user_name = $('#name').val()
+                let user_day = $('#day').val()
+                let user_sex = $('#sex').val()
+                let user_email = $('#email').val()
 
                 $.ajax({
                     type: "POST",
                     url: "/api/join",
                     data: {
-                        userid_give: userid,
-                        username_give: username,
-                        userday_give: userday,
-                        usersex_give: usersex,
-                        useremail_give: useremail,
+                        userid_give: user_id,
+                        username_give: user_name,
+                        userday_give: user_day,
+                        usersex_give: user_sex,
+                        useremail_give: user_email,
                     },
                     success: function (response) {
                         alert(response["msg"]);
-                        window.location.href='http://192.168.35.140:5000/';
+                        window.location.href='login.html';
                     }
                 })
             }
