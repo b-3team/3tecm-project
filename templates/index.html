@@ -29,20 +29,20 @@
             function showBucket() {
                 $.ajax({
                     type: 'GET',
-                    url: '/show?bucket_give=버킷데이터',
+                    url: '/show',
                     data: {},
                     success: function (response) {
-                        let mybuckets = response['bucket_lists']
-                        for (let i = 0; i < mybuckets.length; i++) {
-                            let title = mybuckets[i]['title']
-                            let heart = mybuckets[i]['heart']
-                            let difficulty = mybuckets[i]['difficulty']
-                            let photo = mybuckets[i]['photo']
-                            let photo1 = mybuckets[i]['photo1']
-                            let photo2 = mybuckets[i]['photo2']
-                            let period_Y = mybuckets[i]['period_Y']
-                            let period_M = mybuckets[i]['period_M']
-                            let exampleFormControlTextarea1 = mybuckets[i]['exampleFormControlTextarea1']
+                        let mybucket = response['bucket_lists']
+                        for (let i = 0; i < mybucket.length; i++) {
+                            let title = mybucket[i]['title']
+                            let heart = mybucket[i]['heart']
+                            let difficulty = mybucket[i]['difficulty']
+                            let photo = mybucket[i]['photo']
+                            let photo1 = mybucket[i]['photo1']
+                            let photo2 = mybucket[i]['photo2']
+                            let period_Y = mybucket[i]['period_Y']
+                            let period_M = mybucket[i]['period_M']
+                            let exampleFormControlTextarea1 = mybucket[i]['exampleFormControlTextarea1']
 
                             let temp_html = `<div class="card">
             <div class="memo">
@@ -54,7 +54,6 @@
                     <li>난이도
                         <span class="preten">${difficulty}</span>
                     </li>
-
                     <li>달성목표기간
                         <span class="preten">~ ${period_Y}.${period_M}</span>
                     </li>
@@ -81,6 +80,7 @@
                     }
                 });
             }
+
 
             function changeBucket(title) {
                 $.ajax({
@@ -124,14 +124,13 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
         </nav>
-
         <nav class="lnb">
             <ul>
                 <li><img src="images/human_icon.png" alt="human_icon">
                     <ul>
                         <li><a href="#">마이페이지</a>
                         </li>
-                        <li><a href="javascript:window.location.href ='/first'">리스트 작성하기</a>
+                        <li><a href="javascript:window.location.href ='/'">리스트 작성하기</a>
                         </li>
                         <li><a href="javascript:window.location.reload();">나의 버킷리스트</a>
                         </li>
@@ -150,11 +149,9 @@
     <div class="middle">
         <h2>나의 버킷리스트</h2>
         <div class="line"></div>
-        <a href="javascript:window.location.href ='/first2'"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="javascript:window.location.href ='/'"><i class="fa-solid fa-pen-to-square"></i></a>
     </div>
-
-    <div class="content">
-
-    </div>
+    <div class="content" id="bucket-box"></div>
+     </div>
 </body>
 </html>

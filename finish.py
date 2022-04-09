@@ -8,29 +8,24 @@ client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
 
-# HTML 화면 보여주기
+# 버킷리스트 화면 보여주기
+@app.route('/show1')
+def go_bucket():
+    return render_template('index.html')
+
+#버킷리스트 작성 화면 보여주기
 @app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/first')
-def gogo_bucket():
+def go_write():
     return render_template('write.html')
 
-@app.route('/first2')
-def gogo2_bucket():
-    return render_template('write.html')
-
-@app.route('/second')
-def gogo_putinfo():
-    return render_template('index.html')
-# 보여주기
+#버킷리스트 화면 보여주기
 @app.route('/show', methods=['GET'])
 def show_bucket():
-    bucket_list = list(db.mybucket.find({}, {'_id': False}).sort('difficulty', -1))
+    bucket_list = list(db.mybucket.find({}, {'_id': False}))
     return jsonify({'bucket_lists': bucket_list})
+    return render_template('index.html')
 
-#내용(exampleFormControlTextarea1) 수정하기
+# 내용(exampleFormControlTextarea1) 수정하기
 @app.route('/show/change', methods=['POST'])
 def change_bucket():
     title_receive = request.form['title_give']
@@ -42,20 +37,15 @@ def change_bucket():
     db.mybucket.update_one({'title': title_receive}, {'$set': {'exampleFormControlTextarea1': new_content}})
     return jsonify({'msg': '내용이 수정되었습니다!'})
 
-#삭제하기
+# 버킷리스트 삭제하기
 @app.route('/show/delete', methods=['POST'])
 def delete_bucket():
     title_receive = request.form['title_give']
     db.mybucket.delete_one({'title': title_receive})
     return jsonify({'msg': '버킷리스트가 삭제되었습니다!'})
 
-# HTML 화면 보여주기(저장페이지)
-@app.route('/view')
-def show():
-    return render_template('write.html')
-
 # 저장하기
-@app.route('/bucket', methods=['POST'])
+@app.route('/', methods=['POST'])
 def write_bucket():
     title_receive = request.form['title_give']
     heart_receive = request.form['heart_give']
